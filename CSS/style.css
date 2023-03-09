@@ -8,6 +8,7 @@ body {
   max-width: 1920px;
   background-color: #e2d9d3;
   font-family: "Noto Sans TC", sans-serif;
+  color: #204379;
 }
 body .wrapper {
   height: 630px;
@@ -15,6 +16,16 @@ body .wrapper {
   background-image: url(../IMG/bgwave.png);
   background-repeat: no-repeat;
   background-size: cover;
+}
+@media all and (max-width: 850px) {
+  body .wrapper {
+    height: 687px;
+  }
+}
+@media all and (max-width: 750px) {
+  body .wrapper {
+    height: 793px;
+  }
 }
 body .wrapper .container {
   padding-top: 60px;
@@ -46,6 +57,44 @@ body .wrapper .textbox {
   color: #204379;
   position: relative;
 }
+@media all and (max-width: 850px) {
+  body .wrapper .textbox {
+    width: 720px;
+    height: 322px;
+  }
+}
+@media all and (max-width: 750px) {
+  body .wrapper .textbox {
+    width: 366px;
+    height: 489px;
+  }
+}
+body .wrapper .textbox .pop1 {
+  position: absolute;
+  top: -65px;
+  right: 45px;
+}
+body .wrapper .textbox .pop2 {
+  position: absolute;
+  top: -86px;
+  right: 25px;
+}
+@keyframes moveUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+body .wrapper .textbox .pop1,
+body .wrapper .textbox .pop2 {
+  position: absolute;
+  bottom: 0;
+  animation: moveUp 5s ease-in-out infinite;
+}
 body .wrapper .textbox .oar {
   position: absolute;
   top: -24px;
@@ -60,6 +109,12 @@ body .wrapper .textbox .supfire {
   position: absolute;
   top: 300px;
   left: 35px;
+}
+@media all and (max-width: 750px) {
+  body .wrapper .textbox .supfire {
+    top: 450px;
+    left: 0;
+  }
 }
 @keyframes enlarge-fade {
   0% {
@@ -80,6 +135,12 @@ body .wrapper .textbox .fire {
   top: 315px;
   left: 10px;
   animation: enlarge-fade 2s infinite;
+}
+@media all and (max-width: 750px) {
+  body .wrapper .textbox .fire {
+    top: 450px;
+    left: -15px;
+  }
 }
 body .wrapper .textbox .part1 {
   display: flex; /* 設置part1為Flexbox */
@@ -146,16 +207,32 @@ body .wrapper .textbox .part2 .text p .bold1 {
 body .wrapper .textbox .part2 .text p .bold2 {
   font-weight: bold;
 }
+@keyframes slide {
+  from {
+    background-position: 1600px;
+  }
+  to {
+    background-position: 0px;
+  }
+}
 body .wave {
+  background-image: url("../IMG/wave.png");
+  background-size: cover;
+  background-repeat: repeat;
+  animation: slide 10s linear infinite;
   height: 110px;
-  background-image: url(../IMG/wave.png);
 }
 body .middle {
   height: 630px;
   background-color: #e2d9d3;
   display: flex;
   justify-content: center;
-  flex-direction: column; /* 垂直排列 */
+  flex-direction: column;
+}
+@media all and (max-width: 750px) {
+  body .middle {
+    height: 813px;
+  }
 }
 body .middle .form2 {
   margin: -35px auto;
@@ -168,11 +245,28 @@ body .middle .form2 .form2-turtle {
 }
 body .middle .form-container {
   margin: 0 auto;
-  width: 575px;
+  width: 808px;
   padding: 20px;
   background-color: #fff;
   border: 2px solid #b57556;
   border-radius: 15px;
+}
+@media all and (max-width: 850px) {
+  body .middle .form-container {
+    width: 720px;
+  }
+}
+@media all and (max-width: 750px) {
+  body .middle .form-container {
+    width: 366px;
+    height: 575px;
+    padding: 0;
+  }
+}
+@media all and (max-width: 750px) {
+  body .middle .form-container form {
+    margin-top: 15px;
+  }
 }
 body .middle .form-container .form-group {
   display: flex;
@@ -180,25 +274,58 @@ body .middle .form-container .form-group {
   margin-bottom: 20px;
 }
 body .middle .form-container .form-group label {
-  font-weight: bold;
   margin-bottom: 5px;
+  padding: 5px;
+}
+@media all and (max-width: 750px) {
+  body .middle .form-container .form-group label {
+    padding: 10px;
+  }
 }
 body .middle .form-container .form-group input {
   border: 1px solid #204379;
+  border-radius: 10px;
   padding: 5px;
   width: 98%;
   font-size: 16px;
   margin-top: 5px;
+  padding-left: 10px;
+}
+@media all and (max-width: 750px) {
+  body .middle .form-container .form-group input {
+    padding: 15px;
+    margin: 0 auto;
+    width: 87%;
+  }
 }
 body .middle .form-container .form-group select {
   border: 1px solid #204379;
+  border-radius: 10px;
   padding: 5px;
   width: 100%;
   font-size: 16px;
   margin-top: 5px;
+  background-image: url("../IMG/dropdown.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+@media all and (max-width: 750px) {
+  body .middle .form-container .form-group select {
+    padding: 15px;
+    margin: 0 auto;
+    width: 95%;
+  }
 }
 body .middle .submit-button {
   margin: 0 auto;
+}
+@media all and (max-width: 750px) {
+  body .middle .submit-button {
+    padding-top: 30px;
+  }
 }
 body .gift {
   background-image: url(../IMG/sandbg.png);
@@ -209,6 +336,12 @@ body .gift .itembox {
   justify-content: flex-start;
   width: 600px;
   margin: 0 auto;
+  padding-top: 20px;
+}
+@media all and (max-width: 750px) {
+  body .gift .itembox {
+    width: 400px;
+  }
 }
 body .gift .itembox .item {
   margin: 20px 20px 20px 0;
@@ -219,6 +352,11 @@ body .gift .itembox .item {
   border-radius: 15px;
   position: relative;
   box-shadow: 0px 7px 0px rgba(0, 0, 0, 0.1);
+}
+@media all and (max-width: 750px) {
+  body .gift .itembox .item {
+    margin: 20px 10px 20px 10px;
+  }
 }
 body .gift .itembox .item h2 {
   color: white;
@@ -262,10 +400,13 @@ body .lighthouse {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 body .lighthouse .border {
-  border-left: 1px solid #204379;
-  border-right: 1px solid #204379;
+  position: relative;
+  border: none;
+  height: 100px;
+  padding: 10px;
 }
 body .lighthouse .border h1 {
   text-align: center;
@@ -280,6 +421,23 @@ body .lighthouse .border p {
   font-size: 20px;
   line-height: 28px;
   font-weight: 700;
+}
+body .lighthouse .border::before,
+body .lighthouse .border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #204379;
+}
+body .lighthouse .border::before {
+  left: 0;
+  transform: skew(20deg);
+}
+body .lighthouse .border::after {
+  right: 0;
+  transform: skew(-20deg);
 }
 body .bottom {
   background-color: #204379;

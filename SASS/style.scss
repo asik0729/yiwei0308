@@ -3,17 +3,40 @@
   src: url("/fonts/NotoSansTC-Regular.otf");
 }
 
+// viewport
+$l_breakpoint: 850px;
+$m_breakpoint: 750px;
+
+@mixin pad() {
+  @media all and (max-width: $l_breakpoint) {
+    @content;
+  }
+}
+// 428px
+@mixin mobile() {
+  @media all and (max-width: $m_breakpoint) {
+    @content;
+  }
+}
+
 body {
   margin: 0 auto;
   max-width: 1920px;
   background-color: #e2d9d3;
   font-family: "Noto Sans TC", sans-serif;
+  color: #204379;
   .wrapper {
     height: 630px;
     background-color: #204379;
     background-image: url(../IMG/bgwave.png);
     background-repeat: no-repeat;
     background-size: cover;
+    @include pad {
+      height: 687px;
+    }
+    @include mobile {
+      height: 793px;
+    }
     .container {
       padding-top: 60px;
       text-align: center;
@@ -46,6 +69,43 @@ body {
       margin: 0 auto;
       color: #204379;
       position: relative;
+      @include pad {
+        width: 720px;
+        height: 322px;
+      }
+      @include mobile {
+        width: 366px;
+        height: 489px;
+      }
+      .pop1 {
+        position: absolute;
+        top: -65px;
+        right: 45px;
+      }
+      .pop2 {
+        position: absolute;
+        top: -86px;
+        right: 25px;
+      }
+
+      @keyframes moveUp {
+        0% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        
+        100% {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+      }
+      .pop1,
+      .pop2 {
+        position: absolute;
+        bottom: 0;
+        animation: moveUp 5s ease-in-out infinite;
+      }
+
       .oar {
         position: absolute;
         top: -24px;
@@ -60,6 +120,10 @@ body {
         position: absolute;
         top: 300px;
         left: 35px;
+        @include mobile {
+          top: 450px;
+          left: 0;
+        }
       }
 
       @keyframes enlarge-fade {
@@ -82,6 +146,10 @@ body {
         top: 315px;
         left: 10px;
         animation: enlarge-fade 2s infinite;
+        @include mobile {
+          top: 450px;
+          left: -15px;
+        }
       }
       .part1 {
         display: flex; /* 設置part1為Flexbox */
@@ -153,16 +221,32 @@ body {
       }
     }
   }
+
+  @keyframes slide {
+    from {
+      background-position: 1600px;
+    }
+    to {
+      background-position: 0px;
+    }
+  }
+
   .wave {
+    background-image: url("../IMG/wave.png");
+    background-size: cover;
+    background-repeat: repeat;
+    animation: slide 10s linear infinite;
     height: 110px;
-    background-image: url(../IMG/wave.png);
   }
   .middle {
     height: 630px;
     background-color: #e2d9d3;
     display: flex;
     justify-content: center;
-    flex-direction: column; /* 垂直排列 */
+    flex-direction: column;
+    @include mobile {
+      height: 813px;
+    }
     .form2 {
       margin: -35px auto;
       z-index: 2;
@@ -174,37 +258,75 @@ body {
     }
     .form-container {
       margin: 0 auto;
-      width: 575px;
+      width: 808px;
       padding: 20px;
       background-color: #fff;
       border: 2px solid #b57556;
       border-radius: 15px;
+      @include pad {
+        width: 720px;
+      }
+      @include mobile {
+        width: 366px;
+        height: 575px;
+        padding: 0;
+      }
+      form {
+        @include mobile {
+          margin-top: 15px;
+        }
+      }
       .form-group {
         display: flex;
         flex-direction: column;
         margin-bottom: 20px;
         label {
-          font-weight: bold;
           margin-bottom: 5px;
+          padding: 5px;
+          @include mobile {
+            padding: 10px;
+          }
         }
         input {
           border: 1px solid #204379;
+          border-radius: 10px;
           padding: 5px;
           width: 98%;
           font-size: 16px;
           margin-top: 5px;
+          padding-left: 10px;
+          @include mobile {
+            padding: 15px;
+            margin: 0 auto;
+            width: 87%;
+          }
         }
         select {
           border: 1px solid #204379;
+          border-radius: 10px;
           padding: 5px;
           width: 100%;
           font-size: 16px;
           margin-top: 5px;
+          background-image: url("../IMG/dropdown.png");
+          background-repeat: no-repeat;
+          background-position: right center;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          @include mobile {
+            padding: 15px;
+            margin: 0 auto;
+            width: 95%;
+          }
         }
       }
     }
     .submit-button {
       margin: 0 auto;
+      @include mobile {
+        padding-top: 30px;
+      }
     }
   }
   .gift {
@@ -215,6 +337,11 @@ body {
       justify-content: flex-start;
       width: 600px;
       margin: 0 auto;
+      padding-top: 20px;
+      @include mobile {
+        width: 400px;
+      }
+
       .item {
         margin: 20px 20px 20px 0;
         color: #fff;
@@ -224,6 +351,9 @@ body {
         border-radius: 15px;
         position: relative;
         box-shadow: 0px 7px 0px rgba(0, 0, 0, 0.1);
+        @include mobile {
+          margin: 20px 10px 20px 10px;
+        }
         h2 {
           color: white;
           position: absolute;
@@ -272,9 +402,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+
     .border {
-      border-left: 1px solid #204379;
-      border-right: 1px solid #204379;
+      position: relative;
+      border: none;
+      height: 100px;
+      padding: 10px;
       h1 {
         text-align: center;
         color: #b57556;
@@ -282,6 +416,7 @@ body {
         line-height: 28px;
         font-weight: 700;
       }
+
       p {
         text-align: center;
         color: #204379;
@@ -290,7 +425,27 @@ body {
         font-weight: 700;
       }
     }
+    .border::before,
+    .border::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: #204379;
+    }
+
+    .border::before {
+      left: 0;
+      transform: skew(20deg);
+    }
+
+    .border::after {
+      right: 0;
+      transform: skew(-20deg);
+    }
   }
+
   .bottom {
     background-color: #204379;
     border-radius: 50px 50px 0px 0px;

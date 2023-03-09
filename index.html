@@ -15,6 +15,8 @@
       </div>
       <img class="form" src="./IMG/form.png" />
       <div class="textbox">
+        <img class="pop1" src="./IMG/pop1.png" />
+        <img class="pop2" src="./IMG/pop2.png" />
         <img class="sup" src="./IMG/sup.png" />
         <img class="oar" src="./IMG/oar.png" />
         <img class="supfire" src="./IMG/supfire.png" />
@@ -66,7 +68,7 @@
           <div class="form-group">
             <label for="store">Store *</label>
             <select id="store" name="store">
-              <option value="">--Select Store--</option>
+              <option value="" disabled selected>placeholder text</option>
               <option value="store1">Store 1</option>
               <option value="store2">Store 2</option>
               <option value="store3">Store 3</option>
@@ -74,21 +76,36 @@
           </div>
           <div class="form-group">
             <label for="name">Name *</label>
-            <input type="text" id="name" name="name" />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="placeholder text"
+            />
           </div>
           <div class="form-group">
             <label for="phone">Phone *</label>
-            <input type="text" id="phone" name="phone" />
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="placeholder text"
+            />
           </div>
           <div class="form-group">
             <label for="amount">Amount of Consumption</label>
-            <input type="text" id="amount" name="amount" />
+            <input
+              type="text"
+              id="amount"
+              name="amount"
+              placeholder="placeholder text"
+            />
           </div>
           <div class="form-group">
             <label for="payment">Payment *</label>
 
             <select id="payment" name="payment">
-              <option value="">--Select Payment Method--</option>
+              <option value="">digital payment</option>
               <option value="credit">Credit Card</option>
               <option value="debit">Debit Card</option>
               <option value="paypal">Paypal</option>
@@ -181,9 +198,11 @@
     </div>
 
     <div class="bottom">
-      <p>Neque porro quisquam<br>
-        est qui dolorem!</p>
-        <img src="./IMG/market.png">
+      <p>
+        Neque porro quisquam<br />
+        est qui dolorem!
+      </p>
+      <img src="./IMG/market.png" />
     </div>
   </body>
 </html>
