@@ -1,7 +1,13 @@
+@font-face {
+  font-family: "Noto Sans TC";
+  src: url("/fonts/NotoSansTC-Regular.otf");
+}
+
 body {
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1920px;
   background-color: #e2d9d3;
+  font-family: "Noto Sans TC", sans-serif;
   .wrapper {
     height: 630px;
     background-color: #204379;
