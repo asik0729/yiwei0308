@@ -340,7 +340,7 @@ body .gift .itembox {
 }
 @media all and (max-width: 750px) {
   body .gift .itembox {
-    width: 400px;
+    width: 396px;
   }
 }
 body .gift .itembox .item {
