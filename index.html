@@ -66,21 +66,31 @@
       <div class="form-container">
         <form>
           <div class="form-group">
-            <label for="store">Store *</label>
-            <select id="store" name="store">
-              <option value="" disabled selected>placeholder text</option>
-              <option value="store1">Store 1</option>
-              <option value="store2">Store 2</option>
-              <option value="store3">Store 3</option>
-            </select>
+            <label for="store">Store *</label>  
+            <input
+              type="text"
+              list="storeList"
+              name="store"
+              id="store"
+              required
+              oninput="checkInput(this)"
+            />
+            <datalist id="storeList">
+              <option value="store1" />
+              <option value="store2" />
+              <option value="store3" />
+            </datalist>
           </div>
+
           <div class="form-group">
             <label for="name">Name *</label>
             <input
               type="text"
-              id="name"
-              name="name"
-              placeholder="placeholder text"
+              id="input_text"
+              name="input_text"
+              required
+              pattern="[a-zA-Z\u4e00-\u9fa5\s]+"
+              title="請輸入中英文"
             />
           </div>
           <div class="form-group">
@@ -114,7 +124,9 @@
         </form>
       </div>
       <div class="submit-button">
-        <img src="./IMG/submit.png" />
+        <button type="submit" id="submit-btn">
+          <img src="./IMG/submit.png" />
+        </button>
       </div>
     </div>
     <div class="gift">
@@ -205,4 +217,25 @@
       <img src="./IMG/market.png" />
     </div>
   </body>
+  <script>
+    function checkInput(input) {
+      const options = document.getElementById(
+        input.getAttribute("list")
+      ).options;
+      const inputValue = input.value;
+      let match = false;
+      for (let i = 0; i < options.length; i++) {
+        if (inputValue === options[i].value) {
+          match = true;
+          break;
+        }
+      }
+      if (!match) {
+        input.setCustomValidity("Invalid input");
+      } else {
+        input.setCustomValidity("");
+      }
+    }
+  </script>
+  
 </html>

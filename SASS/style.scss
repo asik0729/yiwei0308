@@ -93,7 +93,7 @@ body {
           opacity: 1;
           transform: translateY(0);
         }
-        
+
         100% {
           opacity: 0;
           transform: translateY(-100px);
@@ -324,6 +324,14 @@ body {
     }
     .submit-button {
       margin: 0 auto;
+      button {
+        appearance: none;
+        -webkit-appearance: none; /* Safari and Chrome */
+        -moz-appearance: none; /* Firefox */
+        border: none; /* Optional: Remove any border */
+        background-color: transparent; /* Optional: Set a transparent background */
+      }
+
       @include mobile {
         padding-top: 30px;
       }
@@ -339,7 +347,7 @@ body {
       margin: 0 auto;
       padding-top: 20px;
       @include mobile {
-        width: 396px;
+        width: 400px;
       }
 
       .item {

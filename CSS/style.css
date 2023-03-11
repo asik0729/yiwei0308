@@ -322,6 +322,13 @@ body .middle .form-container .form-group select {
 body .middle .submit-button {
   margin: 0 auto;
 }
+body .middle .submit-button button {
+  appearance: none;
+  -webkit-appearance: none; /* Safari and Chrome */
+  -moz-appearance: none; /* Firefox */
+  border: none; /* Optional: Remove any border */
+  background-color: transparent; /* Optional: Set a transparent background */
+}
 @media all and (max-width: 750px) {
   body .middle .submit-button {
     padding-top: 30px;
@@ -340,7 +347,7 @@ body .gift .itembox {
 }
 @media all and (max-width: 750px) {
   body .gift .itembox {
-    width: 396px;
+    width: 400px;
   }
 }
 body .gift .itembox .item {
