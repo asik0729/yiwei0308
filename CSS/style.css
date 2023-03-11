@@ -277,6 +277,9 @@ body .middle .form-container .form-group label {
   margin-bottom: 5px;
   padding: 5px;
 }
+body .middle .form-container .form-group label span {
+  color: red;
+}
 @media all and (max-width: 750px) {
   body .middle .form-container .form-group label {
     padding: 10px;
@@ -322,12 +325,27 @@ body .middle .form-container .form-group select {
 body .middle .submit-button {
   margin: 0 auto;
 }
+body .middle .submit-button #submit-img {
+  transition: opacity 0.3s ease-in-out;
+}
+body .middle .submit-button.success {
+  content: url(./IMG/success.png);
+}
+body .middle .submit-button.fail {
+  content: url(./IMG/fail.png);
+}
 body .middle .submit-button button {
   appearance: none;
   -webkit-appearance: none; /* Safari and Chrome */
   -moz-appearance: none; /* Firefox */
   border: none; /* Optional: Remove any border */
   background-color: transparent; /* Optional: Set a transparent background */
+}
+body .middle .submit-button button:hover {
+  cursor: pointer;
+}
+body .middle .submit-button button:hover img {
+  opacity: 0.5;
 }
 @media all and (max-width: 750px) {
   body .middle .submit-button {

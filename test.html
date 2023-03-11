@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <div class="middle">
+      <div class="form2">
+        <img class="form2-white" src="./IMG/form2.png" />
+        <img class="form2-turtle" src="./IMG/turtle.png" />
+      </div>
+      <div class="form-container">
+        <form id="my-form">
+          <div class="form-group">
+            <label for="store">Store <span>*</span></label>
+            <input
+              type="text"
+              list="storeList"
+              name="store"
+              id="store"
+              placeholder="placeholder text"
+              maxlength="6"
+              required
+            />
+
+            <datalist id="storeList">
+              <option value="store1" /></option>
+              <option value="store2" /></option>
+              <option value="store3" /></option>
+            </datalist>
+          </div>
+
+          <div class="form-group">
+            <label for="input">Name <span>*</span></label>
+            <input type="text" id="name" placeholder="placeholder text" />
+            <div id="name_tips"></div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone <span>*</span></label>
+            <input
+              type="text"
+              id="phone"
+              maxlength="10"
+              placeholder="placeholder text"
+              inputmode="numeric"
+            />
+            <div id="phone_tips"></div>
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount of Consumption <span>*</span></label>
+            <input
+              type="text"
+              id="amount"
+              placeholder="placeholder text"
+              inputmode="numeric"
+            />
+            <div id="amount_tips"></div>
+          </div>
+          <div class="form-group">
+            <label for="payment">Payment <span>*</span></label>
+            <select id="payment" name="payment" required>
+              <option value="digital_payment">Digital Payment</option>
+              <option value="atm">ATM</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="submit-button">
+        <button type="submit" id="submit-btn">
+          <img src="./IMG/submit.png" alt="Submit Button" id="submit-img" />
+        </button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const submitButton = document.querySelector("#submit-btn");
+    const submitImg = document.querySelector("#submit-img");
+
+    submitButton.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      // Check form validity
+      if (form.checkValidity()) {
+        // Form is valid, show success image
+        submitImg.classList.add("success");
+        submitButton.disabled = true; // disable button to prevent further submission
+      } else {
+        // Form is invalid, show fail image
+        submitImg.classList.add("fail");
+      }
+    });
+  </script>
+</html>

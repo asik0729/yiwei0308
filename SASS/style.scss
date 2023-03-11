@@ -283,6 +283,9 @@ body {
         label {
           margin-bottom: 5px;
           padding: 5px;
+          span {
+            color: red;
+          }
           @include mobile {
             padding: 10px;
           }
@@ -324,12 +327,27 @@ body {
     }
     .submit-button {
       margin: 0 auto;
+      #submit-img {
+        transition: opacity 0.3s ease-in-out;
+      }
+      &.success {
+        content: url(./IMG/success.png);
+      }
+      &.fail {
+        content: url(./IMG/fail.png);
+      }
       button {
         appearance: none;
         -webkit-appearance: none; /* Safari and Chrome */
         -moz-appearance: none; /* Firefox */
         border: none; /* Optional: Remove any border */
         background-color: transparent; /* Optional: Set a transparent background */
+      }
+      button:hover {
+        cursor: pointer;
+        img {
+          opacity: 0.5;
+        }
       }
 
       @include mobile {

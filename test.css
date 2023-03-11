@@ -1,0 +1,141 @@
+body .middle {
+  height: 630px;
+  background-color: #e2d9d3;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+@media all and (max-width: 750px) {
+  body .middle {
+    height: 813px;
+  }
+}
+body .middle .form2 {
+  margin: -35px auto;
+  z-index: 2;
+  position: relative;
+}
+body .middle .form2 .form2-turtle {
+  position: absolute;
+  left: 75%;
+}
+body .middle .form-container {
+  margin: 0 auto;
+  width: 808px;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #b57556;
+  border-radius: 15px;
+}
+@media all and (max-width: 850px) {
+  body .middle .form-container {
+    width: 720px;
+  }
+}
+@media all and (max-width: 750px) {
+  body .middle .form-container {
+    width: 366px;
+    height: 575px;
+    padding: 0;
+  }
+}
+@media all and (max-width: 750px) {
+  body .middle .form-container form {
+    margin-top: 15px;
+  }
+}
+body .middle .form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+body .middle .form-container .form-group label {
+  margin-bottom: 5px;
+  padding: 5px;
+}
+body .middle .form-container .form-group label span {
+  color: red;
+}
+@media all and (max-width: 750px) {
+  body .middle .form-container .form-group label {
+    padding: 10px;
+  }
+}
+body .middle .form-container .form-group input {
+  border: 1px solid #204379;
+  border-radius: 10px;
+  padding: 5px;
+  width: 98%;
+  font-size: 16px;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+@media all and (max-width: 750px) {
+  body .middle .form-container .form-group input {
+    padding: 15px;
+    margin: 0 auto;
+    width: 87%;
+  }
+}
+body .middle .form-container .form-group select {
+  border: 1px solid #204379;
+  border-radius: 10px;
+  padding: 5px;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 5px;
+  background-image: url("../IMG/dropdown.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+@media all and (max-width: 750px) {
+  body .middle .form-container .form-group select {
+    padding: 15px;
+    margin: 0 auto;
+    width: 95%;
+  }
+}
+body .middle .submit-button {
+  margin: 0 auto;
+}
+body .middle .submit-button button {
+  appearance: none;
+  -webkit-appearance: none; /* Safari and Chrome */
+  -moz-appearance: none; /* Firefox */
+  border: none; /* Optional: Remove any border */
+  background-color: transparent; /* Optional: Set a transparent background */
+}
+body .middle .submit-button button:hover {
+  cursor: pointer;
+}
+body .middle .submit-button button:hover img {
+  /* opacity: 0.5; */
+}
+@media all and (max-width: 750px) {
+  body .middle .submit-button {
+    padding-top: 30px;
+  }
+}
+
+.submit-button {
+  text-align: center;
+}
+
+#submit-img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+#submit-img.success {
+  content: url(./IMG/success.png);
+}
+
+#submit-img.fail {
+  content: url(./IMG/fail.png);
+}
+
+#submit-btn:active #submit-img {
+  opacity: 0.7;
+}
