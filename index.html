@@ -13,7 +13,10 @@
       <div class="container">
         <p>There is no one <br />who loves pain</p>
       </div>
-      <img class="form" src="./IMG/form.png" />
+      <a href="#my-form" onclick="scrollToForm()">
+        <img class="form" src="./IMG/form.png" />
+      </a>
+
       <div class="textbox">
         <img class="pop1" src="./IMG/pop1.png" />
         <img class="pop2" src="./IMG/pop2.png" />
@@ -69,14 +72,13 @@
             <label for="store">Store <span>*</span></label>
             <input
               type="text"
-              list="storeList"
-              name="store"
               id="store"
+              onkeyup="search()"
+              list="storeList"
               placeholder="placeholder text"
               maxlength="6"
               required
             />
-
             <datalist id="storeList">
               <option value="store1" />
               <option value="store2" />
@@ -204,7 +206,6 @@
 
       <img src="./IMG/lighthouse.png" />
     </div>
-
     <div class="bottom">
       <p>
         Neque porro quisquam<br />
@@ -213,6 +214,76 @@
       <img src="./IMG/market.png" />
     </div>
   </body>
+
+  <script>
+    function scrollToForm() {
+      var form = document.getElementById("form");
+      var formPosition =
+        form.getBoundingClientRect().top + window.pageYOffset - 180;
+      var startPosition = window.pageYOffset;
+      var distance = formPosition - startPosition;
+      var duration = 1000;
+      var startTime = null;
+
+      function animate(currentTime) {
+        if (startTime === null) {
+          startTime = currentTime;
+        }
+        var timeElapsed = currentTime - startTime;
+        var ease = easeInOutCubic(
+          timeElapsed,
+          startPosition,
+          distance,
+          duration
+        );
+        window.scrollTo(0, ease);
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animate);
+        }
+      }
+
+      function easeInOutCubic(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) {
+          return (c / 2) * t * t * t + b;
+        }
+        t -= 2;
+        return (c / 2) * (t * t * t + 2) + b;
+      }
+
+      requestAnimationFrame(animate);
+    }
+  </script>
+
+  <script>
+    function search() {
+      var input = document.getElementById("store").value;
+      var datalist = document.getElementById("storelist");
+      var options = datalist.getElementsByTagName("option");
+      var matches = [];
+
+      for (var i = 0; i < options.length; i++) {
+        var option = options[i];
+        var text = option.value.toLowerCase();
+
+        if (text.indexOf(input.toLowerCase()) !== -1) {
+          matches.push(option);
+        }
+      }
+
+      datalist.innerHTML = "";
+
+      if (matches.length === 0) {
+        var option = document.createElement("option");
+        option.value = "no result";
+        datalist.appendChild(option);
+      } else {
+        for (var i = 0; i < matches.length; i++) {
+          datalist.appendChild(matches[i]);
+        }
+      }
+    }
+  </script>
 
   <script>
     const submitButton = document.getElementById("submit-btn");
@@ -234,7 +305,7 @@
         amountInput.value === "" ||
         paymentInput.value === ""
       ) {
-       
+        alert("wrong format");
         submitButton.innerHTML = '<img src="./IMG/fail.png">';
       } else {
         console.log("store:", storeInput.value);

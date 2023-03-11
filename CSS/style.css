@@ -3,6 +3,10 @@
   font-family: "Noto Sans TC";
   src: url("/fonts/NotoSansTC-Regular.otf");
 }
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0 auto;
   max-width: 1920px;
